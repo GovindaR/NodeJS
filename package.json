@@ -1,0 +1,31 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "node application training",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "seed":"knex seed:run --knexfile src/knexdb.js",
+    "seed:make":"knex seed:make --knexfile src/knexdb.js",
+    "migrate:make":"knex migrate:make --knexfile src/knexdb.js",
+    "migrate:latest":"knex migrate:latest --knexfile src/knexdb.js",
+    "migrate:rollback":"knex migrate:rollback --knexfile src/knexdb.js"
+
+  },
+  "keywords": [
+    "js",
+    "node",
+    "api",
+    "nodejs"
+  ],
+  "author": "govinda",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.6",
+    "pg": "^7.6.1",
+    "winston": "^3.1.0"
+  }
+}

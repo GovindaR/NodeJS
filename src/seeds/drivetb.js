@@ -1,5 +1,5 @@
 
-exports.seed = function(knex, Promise) {
+exports.seed = (knex, Promise) =>{
   // Deletes ALL existing entries
   return knex('drivertb').del()
     .then(function () {

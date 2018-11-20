@@ -4,13 +4,12 @@
   "description": "node application training",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "seed":"knex seed:run --knexfile src/knexdb.js",
-    "seed:make":"knex seed:make --knexfile src/knexdb.js",
-    "migrate:make":"knex migrate:make --knexfile src/knexdb.js",
-    "migrate:latest":"knex migrate:latest --knexfile src/knexdb.js",
-    "migrate:rollback":"knex migrate:rollback --knexfile src/knexdb.js"
-
+    "start": "nodemon --exec babel-node src/index.js",
+    "seed": "knex seed:run --knexfile src/knexdb.js",
+    "seed:make": "knex seed:make --knexfile src/knexdb.js",
+    "migrate:make": "knex migrate:make --knexfile src/knexdb.js",
+    "migrate:latest": "knex migrate:latest --knexfile src/knexdb.js",
+    "migrate:rollback": "knex migrate:rollback --knexfile src/knexdb.js"
   },
   "keywords": [
     "js",
@@ -21,6 +20,11 @@
   "author": "govinda",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "app-root-path": "^2.1.0",
+    "babel-core": "^6.26.3",
     "express": "^4.16.4",
     "knex": "^0.15.2",
     "morgan": "^1.9.1",

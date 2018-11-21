@@ -1,12 +1,15 @@
+import winston from "winston"; 
+
+
 const logger = winston.createLogger({
   level: 'info',
-  format: winston.format.json(),
+  format: winston.format.combine(winston.format.json(),winston.format.timestamp()),
   transports: [
     //
     // - Write to all logs with level `info` and below to `combined.log` 
     // - Write all logs error (and below) to `error.log`.
     //
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ maxsize:5120000,maxFiles:5,filename:`${__dirname}/logs/logs-api.log`, level: 'error' }),
     new winston.transports.File({ filename: 'combined.log' })
   ]
 });
@@ -19,3 +22,5 @@ const logger = winston.createLogger({
   logger.add(new winston.transports.Console({
     format: winston.format.simple()
   }));
+
+  export default logger;

@@ -8,13 +8,13 @@ import "./knexdb";
 import express from "express";
 import morgan from "morgan";
 import router from './router';
+import logger from './logger';
 
 const app = express()
-const port = 3000
+const port = 8080
 
 app.use(morgan('combined'));
 app.use('/api',router);
 
 
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => logger.info('server running'));
